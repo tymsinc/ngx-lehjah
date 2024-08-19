@@ -1,24 +1,76 @@
-# Lehjah
+# ngx-lehjah
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+`ngx-lehjah` is an Angular package that allows you to embed the Lehjah widget in your Angular application via an iframe. This package makes it easy to integrate Lehjah's powerful accounting system directly into your Angular app.
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name --project lehjah` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project lehjah`.
-> Note: Don't forget to add `--project lehjah` or else it will be added to the default project in your `angular.json` file. 
+Install the package using npm:
 
-## Build
+```bash
+npm install ngx-lehjah
+```
 
-Run `ng build lehjah` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Publishing
+<!-- Import the `LehjahModule` into your application's module:
 
-After building your library with `ng build lehjah`, go to the dist folder `cd dist/lehjah` and run `npm publish`.
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { LehjahModule } from 'ngx-lehjah';
 
-## Running unit tests
+@NgModule({
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        LehjahModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+``` -->
 
-Run `ng test lehjah` to execute the unit tests via [Karma](https://karma-runner.github.io).
+In your component template, use the `ngx-lehjah-widget` component to embed the widget:
 
-## Further help
+```html
+<ngx-lehjah-widget 
+    [business_id]="'your-business-id'"
+    [public_key]="'your-public-key'"
+    [token]="'your-token'"
+    [environment]="'sandbox'"  <!-- or 'production' -->
+    [width]="'100%'"
+    [height]="'500px'">
+</ngx-lehjah-widget>
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Parameters
+
+- **`business_id`**: (string) The unique ID of the business on your platform. This is required.
+- **`public_key`**: (string) Your Lehjah developer public key. This is required.
+- **`token`**: (string) The user authentication token on your platform (e.g., Bearer token). This is required.
+- **`environment`**: (string) The environment to use. It can be either `sandbox` or `production`. Defaults to `sandbox`.
+- **`width`**: (string) The width of the iframe. Defaults to `'100%'`.
+- **`height`**: (string) The height of the iframe. Defaults to `'100%'`.
+
+## Example
+
+```html
+<ngx-lehjah-widget 
+    [business_id]="'abc123'"
+    [public_key]="'pk_test_abcdef'"
+    [token]="'Bearer your-token-here'"
+    [environment]="'sandbox'"
+    [width]="'100%'"
+    [height]="'600px'">
+</ngx-lehjah-widget>
+```
+
+To request access to Lehjah sandbox, visit [https://cal.com/lehjah/request-access](https://cal.com/lehjah/request-access).
+
+## License
+
+This project is licensed under the MIT License.
+
