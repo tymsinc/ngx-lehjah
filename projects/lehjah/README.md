@@ -33,17 +33,17 @@ import { LehjahModule } from 'ngx-lehjah';
 export class AppModule { }
 ``` -->
 
-In your component template, use the `ngx-lehjah-widget` component to embed the widget:
+In your component template, use the `ngx-lehjah` component to embed the widget:
 
 ```html
-<ngx-lehjah-widget 
+<ngx-lehjah 
     [business_id]="'your-business-id'"
     [public_key]="'your-public-key'"
     [token]="'your-token'"
     [environment]="'sandbox'"  <!-- or 'production' -->
     [width]="'100%'"
     [height]="'500px'">
-</ngx-lehjah-widget>
+</ngx-lehjah>
 ```
 
 ### Parameters
@@ -58,14 +58,14 @@ In your component template, use the `ngx-lehjah-widget` component to embed the w
 ## Example
 
 ```html
-<ngx-lehjah-widget 
+<ngx-lehjah 
     [business_id]="'abc123'"
     [public_key]="'pk_test_abcdef'"
-    [token]="'Bearer your-token-here'"
+    [token]="'user-auth-token-here'"
     [environment]="'sandbox'"
     [width]="'100%'"
     [height]="'600px'">
-</ngx-lehjah-widget>
+</ngx-lehjah>
 ```
 
 To request access to Lehjah sandbox, visit [https://cal.com/lehjah/request-access](https://cal.com/lehjah/request-access).
